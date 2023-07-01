@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C:\WIN\FATCOYOTES.COM</title>
+    <!-- <link rel="stylesheet" href="windows-95-ui-kit/css/pixel.css"> -->
+    <!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="fav/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="fav/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="fav/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="fav/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="fav/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="fav/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16.png">
+	<link rel="apple-touch-icon" href="fav/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="fav/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="fav/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="fav/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="fav/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="fav/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="fav/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="fav/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#efe119">
+	<meta name="msapplication-TileImage" content="fav/favicon-144.png">
+	<meta name="msapplication-config" content="fav/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/98.css">
+    <link rel="stylesheet" href="css/fatten.css">
+    
+</head>
+
+<body>
+    
+    <main>
+        <canvas id="starfield" style="position: absolute;"></canvas>
+        <div id="desktop">
+            <div id="desktop-icons" class="desktop-icons">
+                <a href="index.html">
+                    <div class="appicon">
+                        <img class="appimg" src="img/msie.png"><p>HOMEPAGE</p>
+                    </div>
+                </a>
+                <a href="#" id="fatten-exe">
+                    <div class="appicon">
+                        <img class="appimg" src="img/faticon.png"><p>FATTEN.EXE</p>
+                    </div>
+                </a>
+                <a href="#" id="art">
+                    <div class="appicon">
+                        <img class="appimg" src="img/folder.png"><p>COOL STUFF</p>
+                    </div>
+                </a>
+            </div>
+            <div id="fatten-window" class='show-window window-hide'>
+                <div class="window container">
+                    <div  class="title-bar">
+                        <div id="fatten-window-header" class="title-bar-text">FATTEN.EXE</div>
+                        <div class="title-bar-controls">
+                            <button id="fatten-max" aria-label="Maximize"></button>
+                            <button id="fatten-close" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div class="row">
+                            <div class="col flex">
+                                <fieldset class="stats-box">
+                                    <p>Name: Aru</p>
+                                    <p>Species: Coyote</p>
+                                    <p>Height: 5'10"</p>
+                                    <div>
+                                        <p style="display:inline;">Weight: </p>
+                                        <p style="display:inline;" id="curr-weight"></p>
+                                        <p style="display:inline;"> lbs</p>
+                                    </div> 
+                                </fieldset>
+                                <div>
+                                    <fieldset class="weight-slider">
+                                        <div class="field-row">
+                                            <label for="range21">Weight:</label>
+                                            <label for="range22">Low</label>
+                                            <input id="range22" type="range" min="0" max="4" value="0" />
+                                            <label for="range23">High</label>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="swatch-box">
+                                        <div class="swatch colour1">#53514b</div>
+                                        <div class="swatch colour2">#787878</div>
+                                        <div class="swatch colour3">#413c38</div>
+                                        <div class="swatch colour4">#dcdbd8</div>
+                                        <div class="swatch colour5">#f3f3f3</div>
+                                        <div class="swatch colour6">#efe119</div>
+                                        <div class="swatch colour7">#3a3a3a</div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <fieldset class="image-box">
+                                    <div class="fatten-img">
+                                        <img class="fatass" id="fatyote" draggable="false" src="img/fatten/a0.png">
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div style="float: right;">
+                                        <p style="display: inline;">ART BY: </p>
+                                        <a style="display: inline;" href="https://twitter.com/vomitz">VOMITZ</a>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="art-window" class='show-window window-hide'>
+                <div class="window container">
+                    <div class="title-bar">
+                        <div id="art-window-header" class="title-bar-text">COOL STUFF</div>
+                        <div class="title-bar-controls">
+                            <button id="art-max" aria-label="Maximize"></button>
+                            <button id="art-close" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div class="row">
+                            <p>&nbsp;Hellowo world!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="startmenu" class='start-bar'>
+            <a href="#" title="Start Menu" class="button start-button-padding">
+                <div class="start-button"></div>
+            </a>
+        </div>
+    </main>
+</body>
+
+<script src='js/node_modules/jquery/dist/jquery.min.js'></script>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<!-- <script src="windows-95-ui-kit/js/pixel.js"></script> -->
+<script src="js/fatten.js"></script>
+</html>

@@ -1,0 +1,305 @@
+:root{
+    --amber: #eeb04f;
+    --amberC:#ef7900;
+    --amberA:#a64500;
+    --amber8: #2c0800;
+    --amber6: #ff9a04;
+    --amberD: #fb8600;
+    --amberF: #ffe334;
+  }
+
+/* ELEMENTS */
+body {
+    color: #dcdbd8;
+    font-family: 'VT323', monospace;
+}
+
+#main {
+    width: 1000px;
+    min-height: 2000px;
+    left: 50%;
+    margin-left: -500px;
+    position: absolute;
+    background-color: #212121;
+    /*background: linear-gradient(0deg, #f24b9b, #f24b9b, #f24b9b, #f24b9b, #ede697, #ede697, #ede697, #ede697, #ede697);
+    background-size: 400% 400%;
+    -webkit-animation: rainbow 24s ease infinite;
+    -z-animation: rainbow 24s ease infinite;
+    -o-animation: rainbow 24s ease infinite;
+    animation: rainbow 24s ease infinite;
+    */
+}
+
+#scanlines {
+    background-image: url(../img/scanlines.png);
+    background-repeat: repeat;
+    background-size: 960px 720px;
+    height: 100%;
+}
+
+#screen{
+    /* -webkit-animation: pulse 10s ease infinite;
+    -z-animation: pulse 10s ease infinite;
+    -o-animation: pulse 10s ease infinite;
+    animation: pulse 10s ease infinite; */
+
+}
+
+
+
+#bg { 
+    height: 100%;
+    width: 100%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background-attachment: fixed;
+    background: linear-gradient(124deg, #ffcb28, #ffe334, #ffe334, #ffe334, #ffae18, #ffcb28, #ffcb28, #ffcb28, #ffe334);
+    background-size: 2000% 2000%;
+    -webkit-animation: rainbow 12s ease infinite;
+    -z-animation: rainbow 12s ease infinite;
+    -o-animation: rainbow 12s ease infinite;
+    animation: rainbow 12s ease infinite;
+}
+
+#imgref{
+    position: absolute;
+    top:32px;
+}
+
+#ref-front{
+    top:487px;
+    left: 750px;
+}
+
+#ref-back{
+    top:540px;
+    left: 755px;
+}
+
+#ref-head{
+    top:545px;
+    left: 807px;
+}
+
+#ref-side{
+    top:537px;
+    left: 703px;
+}
+
+#gamecube{
+    position: absolute;
+    width: 900px;
+    top: 1160px;
+    left: 200px;
+    -webkit-animation: rot 7s ease infinite;
+    -z-animation: rot 7s ease infinite;
+    -o-animation: rot 7s ease infinite;
+    animation: rot 7s ease infinite;
+}
+
+#gameyote{
+    position: absolute;
+    width: 500px;
+    top: 700px;
+    left: 440px;
+    -webkit-animation: jiggle 5s ease infinite;
+    -z-animation: jiggle 5s ease infinite;
+    -o-animation: jiggle 5s ease infinite;
+    animation: jiggle 5s ease infinite;
+}
+
+#meleegif{
+    position: absolute;
+    top: 720px;
+    transform: rotate(-10deg);
+}
+
+#myname {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    color: var(--amber);
+   
+    font-size: 6vmin;
+    text-align: center;
+}
+
+#fdbg{
+    position: absolute;
+    top: 1220px;
+    left: 40px;
+    width: 500px;
+    transform: rotate(2deg);
+}
+
+#fd{
+    position: absolute;
+    top: 1300px;
+    -webkit-animation: jiggle 10s ease infinite;
+    -z-animation: jiggle 10s ease infinite;
+    -o-animation: jiggle 10s ease infinite;
+    animation: jiggle 14s ease infinite;
+}
+
+#falscroll{
+    background-image: url(../img/falco.png);
+    top: 730px;
+    animation: slide 20s linear infinite;
+    
+}
+#foxscroll{
+    background-image: url(../img/fox.png);
+    background-position: 30px;
+    top: 930px;
+    animation: slide 18s linear infinite;
+}
+#marscroll{
+    background-image: url(../img/marth.png);
+    background-position: 50px;
+    top: 1130px;
+    animation: slide 16s linear infinite;
+}
+
+#title{
+    position: absolute;
+    width: 250px;
+    left: 680px;
+    top: 50px;
+}
+
+audio{
+    position: absolute;
+    top: 236px;
+    left: 750px;
+    width: 200px;
+    transform: rotate(4deg);
+}
+
+
+/* CLASSES */
+
+.hell{
+    text-align: center;
+    width: 976px;
+    margin: auto;
+    background-color: #53514c;
+}
+
+.refbutton{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+
+}
+
+.amdek {
+    width: 876px;
+    position: absolute;
+    top: 30px;
+    left: -200px;
+}
+
+.aru {
+    position: absolute;
+    top: 160px;
+    width: 285px;
+    left: 100px;
+    -webkit-transition: all .5s; /* Safari */
+    transition: all .5s;
+    transition-timing-function: ease;
+    transform: rotate3d(1,-1,-0.1,30deg);
+    z-index: 1000;
+    filter: brightness(0.75) contrast(1) sepia(0.75) hue-rotate(-2deg) saturate(3.5);
+    /* background: repeating-linear-gradient(transparent, transparent 2px, black 3px, black 3px);
+    background-size: auto 100%;
+    background-position: center center;
+    opacity: 1; */
+}
+
+
+
+.scroll{
+    width: 1632px;
+    height: 200px;
+    background-repeat: repeat-x;
+}
+
+.meleebg{
+    overflow: hidden;
+    position: absolute;
+    top: 731px;
+    height: 600px;
+    width: 1000px;
+}
+
+.aru:hover{
+    transform: rotate3d(0,0,-0,0);
+    width: 500px;
+    filter: unset;
+}
+
+.keeb{
+    position: absolute;
+    left: -150px;
+    transform: rotate(5deg);
+    top: 150px;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@keyframes rot {
+    0%{transform: rotate(-4deg);}
+    50%{transform: rotate(6deg);}
+    100%{transform: rotate(-4deg);}
+}
+
+@keyframes rotgc{
+
+}
+
+@keyframes jiggle {
+    0%{transform: translateY(-12px);}
+    50%{transform: translateY(12px);}
+    100%{transform: translateY(-12px);}
+}
+
+@keyframes pulse {
+    0%{transform: scale3d(1,1,1);}
+    50%{transform: scale3d(1.03,1.03,1.03);}
+    100%{transform: scale3d(1,1,1);}
+}
+
+@keyframes slide {
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-544px, 0, 0); /* The image width */
+    }
+  }
