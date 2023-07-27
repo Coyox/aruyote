@@ -107,6 +107,12 @@ fieldset {
     max-height: 512px;
 }
 
+.ugame {
+    height: 728px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
 .weight-slider {
     display: inline-block;
     /* max-width: 300px;  */
