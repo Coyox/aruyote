@@ -1,0 +1,17 @@
+{
+"companyName": "fatcoyotes.com",
+"productName": "Aruyote",
+"productVersion": "0.1",
+"dataUrl": "Website Ref.data.unityweb",
+"wasmCodeUrl": "Website Ref.wasm.code.unityweb",
+"wasmFrameworkUrl": "Website Ref.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "Website Ref.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.31f1"
+}
