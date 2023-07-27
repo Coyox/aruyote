@@ -111,12 +111,22 @@ $("#art").click(function(){
     }
 });
 
+$("#readme").click(function(){
+    if($("#readme-window").hasClass("window-hide")){
+        $("#readme-window").removeClass("window-hide");
+        $("#readme-window").removeAttr("style");
+    }
+});
+
 //Window Controls
 $("#fatten-close").click(function(){
     $("#fatten-window").addClass("window-hide");
 });
 $("#art-close").click(function(){
     $("#art-window").addClass("window-hide");
+})
+$("#readme-close").click(function(){
+    $("#readme-window").addClass("window-hide");
 })
 
 // Window Focus
@@ -130,6 +140,12 @@ $("#art-window").mousedown(function(){
     if(!$("#art-window").hasClass("focus")){
         $(".focus").removeClass("focus");
         $("#art-window").addClass("focus");
+    }
+});
+$("#readme-window").mousedown(function(){
+    if(!$("#readme-window").hasClass("focus")){
+        $(".focus").removeClass("focus");
+        $("#readme-window").addClass("focus");
     }
 });
 
@@ -182,6 +198,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 if(!isMobile){
     dragElement(document.getElementById("fatten-window"));
     dragElement(document.getElementById("art-window"));
+    dragElement(document.getElementById("readme-window"));
 }
 
 
