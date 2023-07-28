@@ -35,6 +35,28 @@ fieldset {
     visibility: hidden;
 }
 
+.maximized {
+    display: block !important;
+    top:0 !important;
+    bottom:0;
+    left:-10px !important;
+    right:0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    height: calc(100% - 30px);
+    width: 100%;
+}
+
+.max-container {
+    height: 100%;
+    width: 100%;;
+}
+
+.max-body {
+height: 100% !important;
+}
+
 .desktop-icons {
     display: block;
     position: absolute;

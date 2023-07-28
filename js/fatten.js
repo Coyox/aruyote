@@ -46,7 +46,7 @@ for (var i = 0; i < count; i++) {
 }
 
 // main loop
-var fps = 60;
+var fps = 20;
 setInterval(function() {
     c.clearRect(0, 0, w, h);
 
@@ -146,6 +146,19 @@ $("#readme-window").mousedown(function(){
     if(!$("#readme-window").hasClass("focus")){
         $(".focus").removeClass("focus");
         $("#readme-window").addClass("focus");
+    }
+});
+
+// Window Maximize
+$("#art-max").click(function(){
+    if(!$("#art-window").hasClass("maximized")){
+        $("#art-window").addClass("maximized");
+        $("#art-container").addClass("max-container");
+        $("#art-body").addClass("max-body");
+    } else {
+        $("#art-window").removeClass("maximized");
+        $("#art-container").removeClass("max-container");
+        $("#art-body").removeClass("max-body");
     }
 });
 
