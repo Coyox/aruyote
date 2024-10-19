@@ -1,3 +1,4 @@
+/*
 var canvas = document.getElementById("starfield");
 
 
@@ -79,7 +80,7 @@ setInterval(function() {
             stars[i] = [x,y];
         }
     }
-}, 1000 / fps);
+}, 1000 / fps);*/
 
 
 
