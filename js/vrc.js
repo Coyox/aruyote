@@ -1,87 +1,4 @@
-var canvas = document.getElementById("starfield");
-
-
-// get dimensions of body element
-var w = document.body.offsetWidth;
-var h = document.body.offsetHeight;
-
-// detect device pixel ratio
-if (window.devicePixelRatio) {
-    var dpr = window.devicePixelRatio;
-
-    // set dimensions of the canvas element to match the body
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
-
-    // adjust width and height variables according to the detected pixel ratio
-    w = w * dpr;
-    h = h * dpr;
-}
-
-// set drawing dimensions of canvas: if the pixel ratio is 1, this will match
-// the size of the canvas element, but if it's higher (common values will be 2
-// and 3), the canvas will allow for more detail (matching the physical pixels
-// of the device but not the virtual pixels of the page)
-canvas.setAttribute("width", w);
-canvas.setAttribute("height", h);
-
-// prepare a two-dimensional drawing context
-var c = canvas.getContext("2d");
-
-// randomness generator
-rand = function() { return (Math.random() - 0.5) * (Math.random() - 0.5) * Math.random() };
-
-// compute center
-var cx = w / 2;
-var cy = h / 2;
-
-// randomly generate stars around center
-var count = 170;
-var stars = [];
-for (var i = 0; i < count; i++) {
-    var sx = cx + rand() * w;
-    var sy = cy + rand() * h;
-    var s = [sx,sy];
-    stars.push(s);
-}
-
-// main loop
-var fps = 20;
-setInterval(function() {
-    c.clearRect(0, 0, w, h);
-
-    // iterate over stars
-    for (var i = 0; i < stars.length; i++) {
-        var x = stars[i][0];
-        var y = stars[i][1];
-
-        // compute radius depending on euclidean distance from center
-        var r = 0.005 * (Math.sqrt(Math.pow(x - cx, 2) + Math.pow(y - cy, 2)));
-        //var r = 0.005 * (Math.abs(x - cx) + Math.abs(y - cy));
-
-        // draw star
-        c.beginPath();
-        c.arc(x, y, r, 0, 2 * Math.PI, false);
-        c.fillStyle = "white";
-        //var brightness = Math.random() * 255;
-        //c.fillStyle = "rgb(" + brightness + "," + brightness + "," + brightness + ")";
-        c.fill();
-
-        // update star
-        var nx = x + (x - cx) * 0.025;
-        var ny = y + (y - cy) * 0.025;
-        stars[i] = [nx,ny];
-
-        // reset star if out of bounds
-        if (x < -100 || x > w + 100 || y < -100 || y > h + 100) {
-            x = cx + rand() * w/10;
-            y = cy + rand() * w/10;
-            stars[i] = [x,y];
-        }
-    }
-}, 1000 / fps);
-
-
+var extraChars = 2;
 
 var click = new Audio("muse/hover.ogg");
 click.volume = .25;
@@ -95,19 +12,24 @@ $(".btn").click(function(){
 });
 
 //Icon controls to switch active window
-$("#fatten-exe").click(function(){
-    if($("#fatten-window").hasClass("window-hide")){
-        $("#fatten-window").find("#range22").val(0);
-        $("#fatten-window").find("#range22").change();
-        $("#fatten-window").removeClass("window-hide");
-        $("#fatten-window").removeAttr("style");
-    }
-});
-
 $("#art").click(function(){
     if($("#art-window").hasClass("window-hide")){
         $("#art-window").removeClass("window-hide");
         $("#art-window").removeAttr("style");
+    }
+});
+
+$("#art1").click(function(){
+    if($("#art1-window").hasClass("window-hide")){
+        $("#art1-window").removeClass("window-hide");
+        $("#art1-window").removeAttr("style");
+    }
+});
+
+$("#art2").click(function(){
+    if($("#art2-window").hasClass("window-hide")){
+        $("#art2-window").removeClass("window-hide");
+        $("#art2-window").removeAttr("style");
     }
 });
 
@@ -119,29 +41,34 @@ $("#readme").click(function(){
 });
 
 //Window Controls
-$("#fatten-close").click(function(){
-    $("#fatten-window").addClass("window-hide");
-});
 $("#art-close").click(function(){
     $("#art-window").addClass("window-hide");
+})
+$("#art1-close").click(function(){
+    $("#art1-window").addClass("window-hide");
+})
+$("#art2-close").click(function(){
+    $("#art2-window").addClass("window-hide");
 })
 $("#readme-close").click(function(){
     $("#readme-window").addClass("window-hide");
 })
 
 // Window Focus
-$("#fatten-window").mousedown(function(){
-    if(!$("#fatten-window").hasClass("focus")){
-        $(".focus").removeClass("focus");
-        $("#fatten-window").addClass("focus");
-    }
-});
 $("#art-window").mousedown(function(){
     if(!$("#art-window").hasClass("focus")){
         $(".focus").removeClass("focus");
         $("#art-window").addClass("focus");
     }
 });
+
+$("#art1-window").mousedown(function(){
+    if(!$("#art1-window").hasClass("focus")){
+        $(".focus").removeClass("focus");
+        $("#art1-window").addClass("focus");
+    }
+});
+
 $("#readme-window").mousedown(function(){
     if(!$("#readme-window").hasClass("focus")){
         $(".focus").removeClass("focus");
@@ -149,56 +76,16 @@ $("#readme-window").mousedown(function(){
     }
 });
 
-// Window Maximize
-$("#art-max").click(function(){
-    if(!$("#art-window").hasClass("maximized")){
-        $("#art-window").addClass("maximized");
-        $("#art-container").addClass("max-container");
-        $("#art-body").addClass("max-body");
-    } else {
-        $("#art-window").removeClass("maximized");
-        $("#art-container").removeClass("max-container");
-        $("#art-body").removeClass("max-body");
-    }
-});
+// Default Window Positions
+var characterWindowWidth = $("#art-window").width();
+var characterWindowLeft = $("#art-window").position().left;
+for(var i = 1; i <= extraChars; i++){
+    $("#art" + i + "-window").css("left", characterWindowWidth + characterWindowLeft);
+    characterWindowWidth = $("#art" + i + "-window").width();
+    characterWindowLeft = $("#art" + i +"-window").position().left;
+}
 
-//Fatten Game
-$("#fatten-window").find("#range22").change(function(){
-    //Update lbs
-    var rangeVal = $(this).val();
-    var lbs = "150";
-    var img = "a1";
-    switch(rangeVal){
-        case "0":
-            lbs = "150";
-            break;
-        case "1":
-            lbs = "250";
-            break;
-        case "2":
-            lbs = "350";
-            break;
-        case "3":
-            lbs = "450";
-            break;
-        case "4":
-            lbs = "550";
-            break;
-        default:
-            lbs = "???";
-    }
-    $("#curr-weight").html(lbs);
-    //Update picture
-    $("#fatyote").fadeOut(200, "linear", function(){
-             $("#fatyote").attr("src","img/fatten/a" + rangeVal + ".png")
-         });
-    
-    $("#fatyote").fadeIn(200, "linear",);
-    //$("#fatyote").attr("src","img/fatten/a" + rangeVal + ".png");
 
-    // var $pixel = $('#fatyote').PixelFlow();
-    
-});
 
 var isMobile = false; //initiate as false
 // device detection
@@ -209,9 +96,10 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 // Make the DIV element draggable:
 if(!isMobile){
-    dragElement(document.getElementById("fatten-window"));
-    dragElement(document.getElementById("art-window"));
     dragElement(document.getElementById("readme-window"));
+    dragElement(document.getElementById("art-window"));
+    dragElement(document.getElementById("art1-window"));
+    dragElement(document.getElementById("art2-window"));
 }
 
 

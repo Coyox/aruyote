@@ -4,7 +4,7 @@ html{
 }
 
 body{
-    background: url('../img/space.png') no-repeat center fixed;
+    background: url('../img/winxpbg.png') no-repeat center fixed;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -15,9 +15,19 @@ main{
     width: 100%;
 }
 
-a{
-    color: yellow;
-}
+/* a{
+    background: linear-gradient(270deg, #ef42c5, #42cbef);
+    background-size: 200% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    -webkit-animation: titlebar-animation 10s ease infinite;
+    -moz-animation: titlebar-animation 10s ease infinite;
+    animation: titlebar-animation 10s ease infinite;
+} */
 
 fieldset {
     margin: 1em;
@@ -25,6 +35,65 @@ fieldset {
 
 #fatten-window{
     text-align: center;
+}
+
+.character-info{
+    padding-left: 1em;
+    padding-right: 1em;
+    line-height: 24px;
+}
+
+.character-video{
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+}
+
+.character-button{
+    width: 100%;
+    font-size: 120%;
+    height: 2em;
+    background: linear-gradient(270deg, #ef42c5, #42cbef);
+    background-size: 200% 100%;
+    font-weight: 600;
+    color: white;
+
+    -webkit-animation: titlebar-animation 10s ease infinite;
+    -moz-animation: titlebar-animation 10s ease infinite;
+    animation: titlebar-animation 10s ease infinite;
+
+    cursor: pointer;
+}
+
+.character-link{
+    background: linear-gradient(270deg, #ef42c5, #42cbef);
+    background-size: 200% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    -webkit-animation: titlebar-animation 10s ease infinite;
+    -moz-animation: titlebar-animation 10s ease infinite;
+    animation: titlebar-animation 10s ease infinite;
+}
+
+.character-link:hover{
+    background: linear-gradient(270deg, #ef42c5, #42cbef);
+    background-size: 200% 100%;
+    -webkit-text-fill-color: white;
+    color:white;
+}
+
+.character-button-disabled{
+    width: 100%;
+    font-size: 120%;
+    height: 2em;
+}
+
+.character-window {
+    max-width: 320px;
 }
 
 .focus {
@@ -69,6 +138,7 @@ height: 100% !important;
     display: block;
     position: absolute;
     left: 80px;
+    top: 1em;
 }
 
 .window {
@@ -255,23 +325,28 @@ height: 100% !important;
 }
 
 
-@media only screen and (max-width: 600px) {
-    /* .appimg {
-        height: 48px !important;
-        width: 48px !important;
-    }
-    .appicon{
-        width:  64px;
-        height: 48px;
-        text-align: center;
-        margin-bottom: 2em;
-    } */
+@media only screen and (max-width: 768px) {
     .title-bar {
         font-size: 14px;
     }
-
+    .character-window{
+        max-width: none;
+    }
     .show-window{
         /* margin-left: auto; */
         left: 0 !important;
+        width: 100%;
+        margin-right: auto;
+        padding-bottom: 3em;
+        position: relative;
     }
+    .character-video{
+        width:100%;
+    }
+    .character-button{
+        width:100%;
+        height:3em;
+        font-size: 120%;
+    }
+
 }
